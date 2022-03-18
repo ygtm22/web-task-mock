@@ -4,27 +4,30 @@
 <meta charset="UTF-8">
 <title>メニュー画面</title>
 <link href="css/commons.css" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
   <div id="app">
 
-    <p>佐藤さん、こんにちは</p>
-    <form action="logout.html" method="post">
-      <button type="submit">ログアウト</button>
-    </form>
-    <p>
-      <a href="insert.html">登録</a>
-    </p>
+    <div class="header">
+      <p class="user_name">佐藤さん、こんにちは</p>
+      <form class="logout_form" action="logout.html" method="post">
+        <button class="logout_btn" type="submit">
+          <img src="images/ドアアイコン.png">ログアウト</button>
+      </form>
+    </div>
 
-    <fieldset>
-        <label>名前</label>
-        <input type="text" name="userName">
-        <label>TEL</label>
-        <input type="text" name="tel">
-      </fieldset>
-      <button type="submit">検索</button>
+    <form method="get" action="#" class="search_container">
+      <input type="text" size="25" placeholder="キーワード検索">
+      <input type="submit" value="&#xf002">
+    </form>
+
     <table>
-      <caption>検索結果</caption>
+      <div class="table-caption">
+        <div class="btn"><a class="basic_btn regist" href="insert.html">登録</a></div>
+        <div class="caption"><p>検索結果</p></div>
+        <div></div>
+      </div>
       <thead>
         <tr>
           <th>ID</th>
@@ -41,7 +44,7 @@
             <td>{{ user.name }}</td>
             <td>{{ user.tel }}</td>
             <td>{{ user.role_name }}</td>
-            <td><a href="./detail.html">詳細</a></td>
+            <td><a class="detail_btn" href="./detail.html">詳細</a></td>
           </tr>
         </template>
       </tbody>
