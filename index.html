@@ -5,24 +5,27 @@
 <title>ログイン画面</title>
 <link href="css/commons.css" rel="stylesheet">
 </head>
-<body>
+<body class="login_body">
 
-  <p class="error">エラーメッセージ</p>
+  <div class="login_form">
+    <img src="./images/logo.png" class="login_logo">
+    <p class="error">エラーメッセージ</p>
 
-  <form action="menu.html" method="post">
-    <fieldset>
-      <div>
-        <label>ID</label>
-        <input type="text" name="loginId">
-        <span class="error">エラーメッセージ</span>
-      </div>
-      <div>
-        <label>PASS</label>
-        <input type="password" name="pass">
-        <span class="error">エラーメッセージ</span>
-      </div>
-    </fieldset>
-    <button type="submit">ログイン</button>
-  </form>
+    <form action="menu.html" method="post">
+      <fieldset>
+        <div class="cp_iptxt">
+          <input class="base_input" type="text" name="loginId" placeholder="ID">
+          <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+          <div class="error">エラーメッセージ</div>
+        </div>
+
+        <div>
+          <input class="base_input" type="password" name="pass" placeholder="PASS">
+          <div class="error">エラーメッセージ</div>
+        </div>
+      </fieldset>
+      <button class="logout_btn" type="submit">ログイン</button>
+    </form>
+  </div>
 </body>
 </html>
