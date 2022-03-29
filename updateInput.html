@@ -6,52 +6,61 @@
 <link href="css/commons.css" rel="stylesheet">
 </head>
 <body>
-  <p>佐藤さん、こんにちは</p>
-    <form action="logout.html" method="post">
-      <button type="submit">ログアウト</button>
+  <div class="header">
+    <p class="user_name">佐藤さん、こんにちは</p>
+    <form class="logout_form" action="logout.html" method="post">
+      <button class="logout_btn" type="submit">
+        <img src="images/ドアアイコン.png">ログアウト</button>
     </form>
+  </div>
 
-  <p class="error">エラーメッセージ</p>
+  <hr>
 
-  <form action="menu.html" method="post">
-    <fieldset>
-      <div>
-        <label>ID</label>
-        <input type="text" name="loginId" value="n_alice">
-        <span class="error">エラーメッセージ</span>
-      </div>
-      <div>
-        <label>名前</label>
-        <input type="text" name="userName" value="alice">
-        <span class="error">エラーメッセージ</span>
-      </div>
-      <div>
-        <label>TEL</label>
-        <input type="text" name="tel" value="19980406">
-        <span class="error">エラーメッセージ</span>
-      </div>
-      <div>
-        <label>権限</label> <select name="roleId">
-          <option value="1">管理者</option>
-          <option value="2" selected>一般</option>
-        </select>
-      </div>
-      <div>
-        <label>PASS</label>
-        <input type="password" name="pass" value="pw12345">
-        <span class="error">エラーメッセージ</span>
-      </div>
-      <div>
-        <label>PASS（再入力）</label>
-        <input type="password" name="rePass">
-      </div>
-    </fieldset>
-    <div>
-      <button type="submit">登録</button>
+  <div class="insert">
+    <div class="form_body">
+      <p class="error">エラーメッセージ</p>
+
+      <form action="menu.html" method="post">
+        <fieldset class="label-130">
+          <div>
+            <label>ID</label>
+            <input type="text" name="loginId" value="n_alice" class="text-test">
+            <span class="error">エラーメッセージ</span>
+          </div>
+          <div>
+            <label>名前</label>
+            <input type="text" name="userName" value="alice" class="text-test">
+            <span class="error">エラーメッセージ</span>
+          </div>
+          <div>
+            <label>TEL</label>
+            <input type="text" name="tel" value="19980406" class="text-test">
+            <span class="error">エラーメッセージ</span>
+          </div>
+          <div>
+            <label>権限</label> <select name="roleId" class="text-test">
+              <option value="1">管理者</option>
+              <option value="2" selected>一般</option>
+            </select>
+          </div>
+          <div>
+            <label>PASS</label>
+            <input type="password" name="pass" value="pw12345" class="text-test">
+            <span class="error">エラーメッセージ</span>
+          </div>
+          <div>
+            <label>PASS（再入力）</label>
+            <input type="password" name="rePass" class="text-test">
+          </div>
+        </fieldset>
+        <div>
+          <div class="btns">
+            <button type="submit" class="basic_btn">登録</button>
+            <input type="button" onclick="location.href='./menu.html'" value="メニューに戻る" class="cancel_btn">
+          </div>
+        </div>
+      </form>
     </div>
-  </form>
-  <div>
-    <a href="menu.html">メニューに戻る</a>
   </div>
 </body>
 </html>
