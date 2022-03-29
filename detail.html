@@ -7,38 +7,46 @@
 </head>
 <body>
 
-  <p>佐藤さん</p>
-    <form action="logout.html" method="post">
-      <button type="submit">ログアウト</button>
+  <div class="header">
+    <p class="user_name">佐藤さん、こんにちは</p>
+    <form class="logout_form" action="logout.html" method="post">
+      <button class="logout_btn" type="submit">
+        <img src="images/ドアアイコン.png">ログアウト</button>
     </form>
-    <p>
+  </div>
 
-  <form action="menu.html" method="post">
-    <fieldset class="label-130">
-      <div>
-        <label>ID</label>
-        <input type="text" name="loginId" value="n_alice" readonly>
-      </div>
-      <div>
-        <label>名前</label>
-        <input type="text" name="userName" value="alice" readonly>
-      </div>
-      <div>
-        <label>TEL</label>
-        <input type="text" name="tel" value="19980406" readonly>
-      </div>
-      <div>
-        <label>権限</label>
-        <input type="text" name="roleName" value="一般" readonly>
-      </div>
-    </fieldset>
-    <div>
-      <button type="submit">削除</button>
-      <a href="updateInput.html">編集</a>
+  <hr>
+
+  <div class="insert">
+    <div class="form_body">
+      <form action="menu.html" method="post">
+        <fieldset class="label-130">
+          <div>
+            <label>ID</label>
+            <input type="text" name="loginId" value="n_alice" readonly class="text-test">
+          </div>
+          <div>
+            <label>名前</label>
+            <input type="text" name="userName" value="alice" readonly class="text-test">
+          </div>
+          <div>
+            <label>TEL</label>
+            <input type="text" name="tel" value="19980406" readonly class="text-test">
+          </div>
+          <div>
+            <label>権限</label>
+            <input type="text" name="roleName" value="一般" readonly class="text-test">
+          </div>
+        </fieldset>
+        <div>
+          <div class="btns">
+            <input type="button" onclick="location.href='./delete.html'" value="削除" class="basic_btn">
+            <input type="button" onclick="location.href='./updateInput.html'" value="編集" class="basic_btn">
+            <input type="button" onclick="location.href='./menu.html'" value="戻る" class="cancel_btn">
+          </div>
+        </div>
+      </form>
     </div>
-  </form>
-  <div>
-    <a href="menu.html">メニューに戻る</a>
   </div>
 </body>
 </html>
