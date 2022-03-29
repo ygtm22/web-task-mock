@@ -6,7 +6,6 @@ fieldset {
 
 fieldset label {
   display: inline-block;
-  width: 43px;
 }
 
 fieldset.label-60 label {
@@ -45,6 +44,7 @@ input[readonly] {
 
 .error {
   color: red;
+  font-size: 12px;
 }
 
 a.btn {
@@ -80,7 +80,7 @@ table {
 }
 
 table th {
-  background:#A4CA68;
+  background:#68a9eb;
 	font-weight: bold;
 	color:#fff;
 }
@@ -95,13 +95,13 @@ table tr:nth-child(odd){
 }
 
 .detail_btn {
-  background-color:rgb(0, 158, 158);
+  background-color:#004a94;
   display: block;       /* リンクをブロックレベル化して表示 */
   padding: 5px 10px 5px 10px;
 }
 
 .detail_btn:hover {
-  background-color:rgb(85, 195, 199);
+  background-color:#417ebb;
 }
 
 a {
@@ -109,6 +109,7 @@ a {
   color: white;
 }
 
+/** ヘッダー **/
 .user_name {
   text-align: left;
   margin: 30px 100px 30px 100px;
@@ -125,8 +126,8 @@ a {
 
 .logout_btn {
   border: none;
-  border-radius: 15px;
-  background-color: rgb(0, 158, 158);
+  border-radius: 5px;
+  background-color: #004a94;
   padding: auto;
   line-height: 2;
   padding: 10px;
@@ -136,7 +137,7 @@ a {
 }
 
 .logout_btn:hover {
-  background-color:rgb(85, 195, 199);
+  background-color:#417ebb;
 }
 
 .logout_btn img {
@@ -152,12 +153,16 @@ a {
   margin-bottom: 10px;
 }
 
+.btns {
+  text-align: center;
+}
+
 .basic_btn {
   width: auto;
   height: auto;
   border: none;
-  border-radius: 15px;
-  background-color: rgb(0, 158, 158);
+  border-radius: 5px;
+  background-color: #004a94;
   padding: auto;
   line-height: 2;
   padding: 5px 10px 5px 10px;
@@ -167,29 +172,30 @@ a {
 }
 
 .basic_btn:hover {
-  background-color:rgb(85, 195, 199);
+  background-color:#417ebb;
 }
 
-.table-caption {
+.btn {
   width: 80%;
-  display: flex;
   margin: auto;
-}
-
-.table-caption .caption {
-  width: 90%;
-  text-align: center;
-}
-
-.regist {
-  margin: 5px 10px 5px 10px;
-  padding: auto;
-}
-
-.table-caption .btn {
-  width: 10%;
   text-align: left;
-  margin: auto;
+}
+
+.cancel_btn {
+  width: auto;
+  height: auto;
+  border: solid 1px rgb(207, 207, 207);
+  border-radius: 5px;
+  background-color: rgb(240, 240, 240);
+  padding: auto;
+  line-height: 2;
+  padding: 4px 10px 4px 10px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.cancel_btn:hover {
+  background-color:rgb(216, 216, 216);
 }
 
 /** 検索バー **/
@@ -225,4 +231,75 @@ a {
   right: 0;
   top: -10px;
   outline : none;
+}
+
+/** ログイン画面 **/
+.login_form {
+  width: 400px;
+  height: 350px;
+  position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  text-align: center;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.base_input {
+  width: 250px;
+  height: 15px;
+  padding:8px 10px;
+  border-radius:10px;
+}
+
+.login_body {
+  background-color: rgb(240, 240, 240);
+}
+
+.login_logo {
+  width: 180px;
+  height: 70px;
+  margin-top: 10px;
+}
+
+/** 登録画面 **/
+.insert {
+  width: 70%;
+  margin: auto;
+}
+
+.insert_body {
+  background-color: white;
+}
+
+/* select{
+  padding:10px;
+  width:50%;
+} */
+
+.text-test {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: transparent;
+	background-image: none;
+	border: 1px solid rgba(0, 0, 0, 0.16);
+	border-radius: 0;
+	color: inherit;
+	font-family: inherit;
+	font-size: 1em;
+	padding: 0.4em 0.8em;
+	width: 50%;
+  margin: 6px;
+}
+
+.text-test:focus {
+	border: 1px solid rgba(0, 0, 0, 0.32);
+	box-shadow: none;
+	outline: none;
+}
+
+hr {
+  width: 80%;
 }
