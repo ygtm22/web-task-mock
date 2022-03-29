@@ -6,24 +6,38 @@
 <link href="css/commons.css" rel="stylesheet">
 </head>
 <body>
-  <p>
-    削除するIDを入力してください<br> <span class="required"></span>は必須です
-  </p>
-
-  <p class="error">エラーメッセージ</p>
-
-  <form action="deleteConfirm.html" method="post">
-    <fieldset>
-      <div>
-        <label class="required">ID</label>
-        <input type="text" name="loginId">
-        <span class="error">エラーメッセージ</span>
-      </div>
-    </fieldset>
-    <button type="submit">確認</button>
-  </form>
-  <div>
-    <a href="menu.html">メニューに戻る</a>
+  <div class="header">
+    <p class="user_name">佐藤さん、こんにちは</p>
+    <form class="logout_form" action="logout.html" method="post">
+      <button class="logout_btn" type="submit">
+        <img src="images/ドアアイコン.png">ログアウト</button>
+    </form>
   </div>
+
+  <hr>
+
+  <div class="insert">
+    <div class="discription">
+      <p>
+        削除するIDを入力してください<br> <span class="required"></span>は必須です
+      </p>
+
+      <div class="form_body">
+        <p class="error">エラーメッセージ</p>
+
+        <form action="deleteConfirm.html" method="post">
+          <fieldset class="label-130">
+            <div>
+              <label class="required">ID</label>
+              <input type="text" name="loginId" class="text-test">
+              <span class="error">エラーメッセージ</span>
+            </div>
+          </fieldset>
+          <div class="btns">
+            <button type="submit" class="basic_btn">確認</button>
+            <input type="button" onclick="location.href='./menu.html'" value="メニューに戻る" class="cancel_btn">
+          </div>
+        </form>
+      </div>
 </body>
 </html>
