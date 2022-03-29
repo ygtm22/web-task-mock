@@ -5,56 +5,71 @@
 <title>登録画面</title>
 <link href="css/commons.css" rel="stylesheet">
 </head>
-<body>
+<body class="login_body">
 
-  <p>佐藤さん、こんにちは</p>
-    <form action="logout.html" method="post">
-      <button type="submit">ログアウト</button>
-    </form>
+  <div class="insert_body">
+
+    <div class="header">
+      <p class="user_name">佐藤さん、こんにちは</p>
+      <form class="logout_form" action="logout.html" method="post">
+        <button class="logout_btn" type="submit">
+          <img src="images/ドアアイコン.png">ログアウト</button>
+      </form>
+    </div>
+
+    <hr>
     
-  <p>
-    登録情報を入力してください<br> <span class="required"></span>は必須です
-  </p>
-
-  <p class="error">エラーメッセージ</p>
-
-  <form action="menu.html" method="post">
-    <fieldset class="label-60">
-      <div>
-        <label class="required">ID</label>
-        <input type="text" name="loginId">
-        <span class="error">エラーメッセージ</span>
+    <div class="insert">
+      <div class="discription">
+        <p>
+          登録情報を入力してください（<span class="required"></span>は必須です）
+        </p>
       </div>
-      <div>
-        <label class="required">名前</label>
-        <input type="text" name="userName">
-        <span class="error">エラーメッセージ</span>
+    
+      <div class="form_body">
+        <p class="error">エラーメッセージ</p>
+    
+        <form action="menu.html" method="post">
+          <fieldset class="label-130">
+            <div>
+              <label class="required">ID</label>
+              <input type="text" name="loginId" class="text-test">
+              <span class="error">エラーメッセージ</span>
+            </div>
+            <div>
+              <label class="required">名前</label>
+              <input type="text" name="userName" class="text-test">
+              <span class="error">エラーメッセージ</span>
+            </div>
+            <div>
+              <label class="required">TEL</label>
+              <input type="text" name="tel" class="text-test">
+              <span class="error">エラーメッセージ</span>
+            </div>
+            <div class="select_block">
+              <label class="required">権限</label>
+              <select name="roleId" class="text-test">
+                <option value="1">管理者</option>
+                <option value="2" selected>一般</option>
+              </select>
+            </div>
+            <div>
+              <label class="required">PASS</label>
+              <input type="password" name="pass" class="text-test">
+              <span class="error">エラーメッセージ</span>
+            </div>
+            <div>
+              <label>PASS（再入力）</label>
+              <input type="password" name="rePass" class="text-test">
+            </div>
+          </fieldset>
+          <div class="btns">
+            <button type="submit" class="basic_btn">更新</button>
+            <input type="button" onclick="location.href='./menu.html'" value="戻る" class="cancel_btn">
+          </div>
+        </form>
       </div>
-      <div>
-        <label class="required">TEL</label>
-        <input type="text" name="tel">
-        <span class="error">エラーメッセージ</span>
-      </div>
-      <div>
-        <label class="required">権限</label> <select name="roleId">
-          <option value="1">管理者</option>
-          <option value="2" selected>一般</option>
-        </select>
-      </div>
-      <div>
-        <label class="required">PASS</label>
-        <input type="password" name="pass">
-        <span class="error">エラーメッセージ</span>
-      </div>
-      <div>
-        <label>PASS（再入力）</label>
-        <input type="password" name="rePass">
-      </div>
-    </fieldset>
-    <button type="submit">更新</button>
-  </form>
-  <div>
-    <a href="menu.html">メニューに戻る</a>
+    </div>
   </div>
 </body>
 </html>
