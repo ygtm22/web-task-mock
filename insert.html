@@ -30,35 +30,32 @@
       <form action="menu.html" method="post">
         <fieldset class="label-130">
           <div>
-            <label class="required">ID</label>
-            <input type="text" name="loginId" class="text-test">
+            <label class="required">商品ID</label>
+            <input type="text" name="loginId" class="base-text">
             <span class="error">エラーメッセージ</span>
           </div>
           <div>
-            <label class="required">名前</label>
-            <input type="text" name="userName" class="text-test">
+            <label class="required">商品名</label>
+            <input type="text" name="userName" class="base-text">
             <span class="error">エラーメッセージ</span>
           </div>
           <div>
-            <label class="required">TEL</label>
-            <input type="text" name="tel" class="text-test">
+            <label class="required">単価</label>
+            <input type="text" name="tel" class="base-text">
             <span class="error">エラーメッセージ</span>
           </div>
           <div class="select_block">
-            <label class="required">権限</label>
-            <select name="roleId" class="text-test">
-              <option value="1">管理者</option>
-              <option value="2" selected>一般</option>
+            <label class="required">カテゴリ</label>
+            <select name="roleId" class="base-text">
+              <option value="1">ペン</option>
+              <option value="2">ノート</option>
+              <option value="3">消しゴム</option>
+              <option value="4">のり</option>
             </select>
           </div>
           <div>
-            <label class="required">PASS</label>
-            <input type="password" name="pass" class="text-test">
-            <span class="error">エラーメッセージ</span>
-          </div>
-          <div>
-            <label>PASS（再入力）</label>
-            <input type="password" name="rePass" class="text-test">
+            <label>商品説明</label>
+            <textarea name="description" class="base-text"></textarea>
           </div>
         </fieldset>
         <div class="btns">

@@ -29,20 +29,20 @@
         <div class="caption"><p>検索結果</p></div>
       <thead>
         <tr>
-          <th>ID</th>
-          <th>名前</th>
-          <th>TEL</th>
-          <th>権限</th>
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>単価</th>
+          <th>カテゴリ</th>
           <th>詳細</th>
         </tr>
       </thead>
       <tbody>
-        <template v-for="user in users">
+        <template v-for="product in products">
           <tr>
-            <td>{{ user.ID }}</td>
-            <td>{{ user.name }}</td>
-            <td>{{ user.tel }}</td>
-            <td>{{ user.role_name }}</td>
+            <td>{{ product.ID }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.category }}</td>
             <td><a class="detail_btn" href="./detail.html">詳細</a></td>
           </tr>
         </template>
@@ -55,66 +55,66 @@
     new Vue({
       el: "#app",
       data: {
-        users: [
+        products: [
           {
-            ID: "sato",
-            name: "佐藤",
-            tel: "09011111111",
-            role_name: "管理者",
+            ID: "10001",
+            name: "マッキー(黒)",
+            price: 160,
+            category: "ペン",
           },
           {
-            ID: "suzuki",
-            name: "鈴木",
-            tel: "09022222222",
-            role_name: "管理者",
+            ID: "10002",
+            name: "Campus(5冊組)",
+            price: 935,
+            category: "ノート",
           },
           {
-            ID: "takahashi",
-            name: "高橋",
-            tel: "09033333333",
-            role_name: "管理者",
+            ID: "10003",
+            name: "フリクション(ブラック)",
+            price: 220,
+            category: "ペン",
           },
           {
-            ID: "tanaka",
-            name: "田中",
-            tel: "09044444444",
-            role_name: "一般",
+            ID: "10004",
+            name: "フリクション(レッド)",
+            price: 220,
+            category: "ペン",
           },
           {
-            ID: "ito",
-            name: "伊藤",
-            tel: "09055555555",
-            role_name: "一般",
+            ID: "10005",
+            name: "マッキー(赤)",
+            price: 160,
+            category: "ペン",
           },
           {
-            ID: "yamamoto",
-            name: "山本",
-            tel: "09066666666",
-            role_name: "一般",
+            ID: "10006",
+            name: "ロジカルノート(5冊組)",
+            price: 386,
+            category: "ノート",
           },
           {
-            ID: "watanage",
-            name: "渡辺",
-            tel: "09077777777",
-            role_name: "一般",
+            ID: "10007",
+            name: "mono",
+            price: 130,
+            category: "消しゴム",
           },
           {
-            ID: "nakamura",
-            name: "中村",
-            tel: "09088888888",
-            role_name: "一般",
+            ID: "10008",
+            name: "カドケシ",
+            price: 150,
+            category: "消しゴム",
           },
           {
-            ID: "kobayashi",
-            name: "小林",
-            tel: "09099999999",
-            role_name: "一般",
+            ID: "10009",
+            name: "アラビックヤマト",
+            price: 160,
+            category: "のり",
           },
           {
-            ID: "kato",
-            name: "加藤",
-            tel: "09000000000",
-            role_name: "一般",
+            ID: "10010",
+            name: "フエキ糊",
+            price: 88,
+            category: "のり",
           },
         ]
       }
