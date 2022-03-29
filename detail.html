@@ -40,13 +40,22 @@
         </fieldset>
         <div>
           <div class="btns">
-            <input type="button" onclick="location.href='./delete.html'" value="削除" class="basic_btn">
+            <input type="button" onclick="openModal()" value="削除" class="basic_btn">
             <input type="button" onclick="location.href='./updateInput.html'" value="編集" class="basic_btn">
             <input type="button" onclick="location.href='./menu.html'" value="戻る" class="cancel_btn">
+          </div>
+          <div id="modal">
+            <p class="modal_message">削除しますか？</p>
+            <div class="btns">
+              <button type="submit" class="basic_btn">削除</button>
+              <button type="button" onclick="closeModal()" class="cancel_btn">キャンセル</button>
+            </div>
           </div>
         </div>
       </form>
     </div>
   </div>
+  <div id="fadeLayer"></div>
 </body>
 </html>
+<script src="./js/commons.js"></script>

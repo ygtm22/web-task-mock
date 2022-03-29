@@ -53,14 +53,21 @@
             <input type="password" name="rePass" class="text-test">
           </div>
         </fieldset>
-        <div>
           <div class="btns">
-            <button type="submit" class="basic_btn">登録</button>
+            <button type="button" onclick="openModal()" class="basic_btn">更新</button>
             <input type="button" onclick="location.href='./menu.html'" value="メニューに戻る" class="cancel_btn">
           </div>
-        </div>
+          <div id="modal">
+            <p class="modal_message">更新しますか？</p>
+            <div class="btns">
+              <button type="submit" class="basic_btn">更新</button>
+              <button type="button" onclick="closeModal()" class="cancel_btn">キャンセル</button>
+            </div>
+          </div>
       </form>
     </div>
   </div>
+  <div id="fadeLayer"></div>
 </body>
 </html>
+<script src="./js/commons.js"></script>
