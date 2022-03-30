@@ -6,6 +6,7 @@ fieldset {
 
 fieldset label {
   display: inline-block;
+  vertical-align: top;
 }
 
 fieldset.label-60 label {
