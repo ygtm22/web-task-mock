@@ -144,6 +144,8 @@ a {
 
 .logout_btn img {
   width: 20px;
+  vertical-align: middle;
+  margin: 0 5px 5px 0;
 }
 
 hr {
