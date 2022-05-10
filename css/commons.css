@@ -368,3 +368,23 @@ h1 a {
   margin-left: auto;
   margin-right: 10%;
 }
+
+/* 編集画面 */
+.update {
+  width: 80%;
+  margin: auto;
+}
+
+.update .form_body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.update .form_body form {
+  width: 600px;
+}
+
+.update .product_img {
+  max-width: 250px;
+  max-height: 250px;
+}
