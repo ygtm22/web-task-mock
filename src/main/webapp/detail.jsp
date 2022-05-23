@@ -1,3 +1,6 @@
+<%@page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +11,7 @@
 <body>
 
   <div class="header">
-    <h1 class="site_logo"><a href="menu.html">商品管理システム</a></h1>
+    <h1 class="site_logo"><a href="menu.jsp">商品管理システム</a></h1>
     <div class="user">
       <p class="user_name">佐藤さん、こんにちは</p>
       <form class="logout_form" action="logout.html" method="get">
