@@ -1,6 +1,7 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +28,7 @@
 
     <div class="btn"><a class="basic_btn regist" href="insert.jsp">新規登録</a></div>
     <p>成功メッセージ</p>
-    <form method="get" action="#" class="search_container">
+    <form method="get" action="productServlet" class="search_container">
       <input type="text" size="25" placeholder="キーワード検索">
       <input type="submit" value="&#xf002">
     </form>
@@ -55,7 +56,17 @@
         </tr>
       </thead>
       <tbody>
-        <template v-for="product in products">
+      	<c:forEach var="product" items="${productList}">
+      		<tr>
+      	 		<td>${fn:escapeXml(product.productId)}</td>
+				<td>${fn:escapeXml(product.productName)}</td>
+				<td>${fn:escapeXml(product.price)}</td>
+				<td>${fn:escapeXml(product.categoryName)}</td> 
+				<td><a class="detail_btn" href="./detail.jsp">詳細</a></td>
+      		</tr>
+      	</c:forEach>
+      </tbody>
+        <!-- template v-for="product in products">
           <tr>
             <td>{{ product.ID }}</td>
             <td>{{ product.name }}</td>
@@ -63,8 +74,8 @@
             <td>{{ product.category }}</td>
             <td><a class="detail_btn" href="./detail.jsp">詳細</a></td>
           </tr>
-        </template>
-      </tbody>
+        </template> -->
+       
     </table>
   </div>
   <footer></footer>

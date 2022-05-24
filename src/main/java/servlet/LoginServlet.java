@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entity.Product;
+import service.ProductService;
 import entity.User;
 import service.UserService;
 import util.ParamUtil;
@@ -32,8 +34,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	
 	}
 
 	/**
@@ -56,8 +57,6 @@ public class LoginServlet extends HttpServlet {
 			request.setAttribute("passMsg", "PASSは必須です。");
 			error = true;
 		}
-		
-		System.out.println(pass);
 		
 		if(error) {
 			request.getRequestDispatcher("/index.jsp").forward(request, response);

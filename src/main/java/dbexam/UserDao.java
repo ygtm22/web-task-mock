@@ -5,13 +5,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import entity.User;
+import util.ParamUtil;
 
 public class UserDao {
 	private static final String SQL_SELECT_ID_AND_PASS = "SELECT * FROM users WHERE login_id = ? AND password = ? ";
-	private static final String SQL_SELECT_ALL = "SELECT * FROM users";
+	private static final String SQL_SELECT_PRODUCT_TABLE = "SELECT * FROM products";
 	
 	Connection con;
 	
@@ -32,8 +34,9 @@ public class UserDao {
 				return null;
 			}
 			
-		}catch (SQLException e) {
-            throw new RuntimeException(e);
+		}catch (SQLException e) { 
+			e.printStackTrace();
         }
+		return null;
 	}
 }
