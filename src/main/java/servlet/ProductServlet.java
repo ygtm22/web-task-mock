@@ -35,16 +35,13 @@ public class ProductServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
-		 String categoryName = request.getParameter("categoryName"); 
 		 String productName = request.getParameter("productName");
+		 String categoryName = request.getParameter("name"); 
 		 
 		
 		ProductService pdService = new ProductService();
 		
-		Product pdSelect = new Product(null,productName, null, categoryName);
-		/*
-		 * Product product = new Product(); Category category = new Category();
-		 */
+		Product pdSelect = new Product(null, productName, null, categoryName);
 		
 		List<Product> productList = pdService.find(pdSelect);
 		
