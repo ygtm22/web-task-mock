@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import entity.Product;
 import entity.Category;
 import service.ProductService;
 import util.ParamUtil;
+import dbexam.ProductDao;
 
 /**
  * Servlet implementation class loginServlet
@@ -34,20 +36,25 @@ public class ProductServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		ProductService productService = new ProductService();
+		String productName = request.getParameter("keyword");
+		List<Product> pdList = (List<Product>) request.getAttribute(productName);
 		
-		 String productName = request.getParameter("productName");
-		 String categoryName = request.getParameter("name"); 
-		 
 		
-		ProductService pdService = new ProductService();
-		
-		Product pdSelect = new Product(null, productName, null, categoryName);
-		
-		List<Product> productList = pdService.find(pdSelect);
-		
-		if(!productList.isEmpty()) {
-			request.setAttribute("productList", productList);
+		if(ParamUtil.isNullOrEmpty(productName)) {
+			productService.findAll();
+			request.setAttribute("pdList", productService.findAll());
 			request.getRequestDispatcher("/menu.jsp").forward(request, response);
+		}else {
+			pdList = productService.findByName(productName);
+			
+			if (pdList == null) {
+				request.setAttribute("msg", "検索結果がありません");
+				request.getRequestDispatcher("/menu.jsp").forward(request, response);
+			}else {
+				request.setAttribute("pdList", pdList);
+				request.getRequestDispatcher("/menu.jsp").forward(request, response);
+			}
 		}
 	}
 

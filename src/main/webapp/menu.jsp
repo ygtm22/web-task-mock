@@ -27,9 +27,11 @@
     <hr>
 
     <div class="btn"><a class="basic_btn regist" href="insert.jsp">新規登録</a></div>
-    <p>成功メッセージ</p>
+    <c:if test="${not empty msg}">
+    <p>${msg}</p>
+     </c:if>
     <form method="get" action="productServlet" class="search_container">
-      <input type="text" size="25" placeholder="キーワード検索">
+      <input type="text" size="25" name= "keyword" placeholder="キーワード検索">
       <input type="submit" value="&#xf002">
     </form>
 
@@ -56,7 +58,7 @@
         </tr>
       </thead>
       <tbody>
-      	<c:forEach var="product" items="${productList}">
+      	<c:forEach var="product" items="${pdList}">
       		<tr>
       	 		<td>${fn:escapeXml(product.productId)}</td>
 				<td>${fn:escapeXml(product.productName)}</td>

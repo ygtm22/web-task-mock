@@ -70,9 +70,9 @@ public class LoginServlet extends HttpServlet {
 		
 		Product pdSelect = new Product(null, null, null, null);
 		
-		List<Product> productList = pdService.find(pdSelect);
+		List<Product> productList = pdService.findAll();
 		
-		if (user != null && productList != null) {
+		if (user != null && !productList.isEmpty()) {
 			request.setAttribute("user", user);
 			request.setAttribute("productList", productList);
 			request.getRequestDispatcher("/menu.jsp").forward(request, response);
