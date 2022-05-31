@@ -32,4 +32,33 @@ public class ProductService{
         }
 		return pdList;
 	}
+	
+	 public int register(Product product) {
+	        try (Connection conn = DbUtil.getConnection()) {
+	            ProductDao productDao = new ProductDao(conn);
+	            return productDao.insert(product);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+
+	        return 0;
+	    }
+	 
+	 public int productId(int product) {
+	        try (Connection conn = DbUtil.getConnection()) {
+	            ProductDao productDao = new ProductDao(conn);
+	            return productDao.findById(product);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+
+	        return 0;
+	    }
+	
+	/*
+	 * public Product findByCount(int product) { try (Connection con =
+	 * DbUtil.getConnection()){ ProductDao productDao = new ProductDao(con); return
+	 * productDao.findByCount(product); } catch (Exception e) { e.printStackTrace();
+	 * } return null; }
+	 */
 }

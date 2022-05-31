@@ -27,8 +27,8 @@
     <hr>
 
     <div class="btn"><a class="basic_btn regist" href="insert.jsp">新規登録</a></div>
-    <c:if test="${not empty msg}">
-    <p>${msg}</p>
+    <c:if test="${not empty pdMsg}">
+    <h2>${pdMsg}</h2>
      </c:if>
     <form method="get" action="productServlet" class="search_container">
       <input type="text" size="25" name= "keyword" placeholder="キーワード検索">

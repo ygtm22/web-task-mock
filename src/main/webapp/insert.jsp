@@ -15,7 +15,7 @@
     <h1 class="site_logo"><a href="menu.html">商品管理システム</a></h1>
     <div class="user">
       <p class="user_name">${fn:escapeXml(user.name)}さん、こんにちは</p>
-      <form class="logout_form" action="logout.html" method="get">
+      <form class="logout_form" action="logout.jsp" method="get">
         <button class="logout_btn" type="submit">
           <img src="images/ドアアイコン.png">ログアウト</button>
       </form>
@@ -32,33 +32,41 @@
     </div>
   
     <div class="form_body">
-      <p class="error">エラーメッセージ</p>
+      <c:if test="${not empty pdMsg}">
+    <p class="error">${pdMsg}</p>
+    </c:if>
   
-      <form action="menu.html" method="get">
+      <form action="InsertServlet" method="post">
         <fieldset class="label-130">
           <div>
             <label class="required">商品ID</label>
-            <input type="text" name="loginId" class="base-text">
+            <input type="text" name="productId" class="base-text">
             
-            <span class="error">エラーメッセージ</span>
+           <c:if test="${not empty idMsg}">
+    			<ladel class="error">${idMsg}</ladel>
+    		</c:if>
           </div>
           <div>
             <label class="required">商品名</label>
-            <input type="text" name="userName" class="base-text">
-            <span class="error">エラーメッセージ</span>
+            <input type="text" name="productName" class="base-text">
+            <c:if test="${not empty nameMsg}">
+     			<ladel class="error">${nameMsg}</ladel>
+    		</c:if>
           </div>
           <div>
             <label class="required">単価</label>
-            <input type="text" name="tel" class="base-text">
-            <span class="error">エラーメッセージ</span>
+            <input type="text" name="price" class="base-text">
+            <c:if test="${not empty priceMsg}">
+    			<ladel class="error">${priceMsg}</ladel>
+    		</c:if>
           </div>
           <div class="select_block">
             <label class="required">カテゴリ</label>
-            <select name="roleId" class="base-text">
+            <select name="categoryId" class="base-text">
               <option value="1">筆記具</option>
-              <option value="2">紙製品</option>
+              <option value="2">オフィス機器</option>
               <option value="3">事務消耗品</option>
-              <option value="4">オフィス機器</option>
+              <option value="4">紙製品</option>
               <option value="5">雑貨</option>
             </select>
           </div>

@@ -5,7 +5,17 @@ public class Product{
 	private String productName;
 	private Integer price;
 	private String categoryName;
+	private Integer categoryId;
+	private String description;
 	
+	public Integer getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(Integer categoryId) {
+		this.categoryId = categoryId;
+	}
+
 	public Product() {
 		
 	}
@@ -15,6 +25,22 @@ public class Product{
 		this.productName = productName;
 		this.price = price;
 		this.categoryName = categoryName;
+	}
+	
+	public Product(Integer productId, String productName, Integer price, Integer categoryId, String description) {
+		this.productId = productId;
+		this.productName = productName;
+		this.price = price;
+		this.categoryId = categoryId;
+		this.description = description;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getCategoryName() {

@@ -68,13 +68,13 @@ public class LoginServlet extends HttpServlet {
 		
 		ProductService pdService = new ProductService();
 		
-		Product pdSelect = new Product(null, null, null, null);
+		//Product pdSelect = new Product(null, null, null, null);
 		
 		List<Product> productList = pdService.findAll();
 		
 		if (user != null && !productList.isEmpty()) {
 			request.setAttribute("user", user);
-			request.setAttribute("productList", productList);
+			request.setAttribute("pdList", productList);
 			request.getRequestDispatcher("/menu.jsp").forward(request, response);
 		}else {
 			request.setAttribute("msg", "IDまたはPASSが不正です");

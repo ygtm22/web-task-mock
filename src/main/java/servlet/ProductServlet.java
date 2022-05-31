@@ -37,22 +37,31 @@ public class ProductServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		ProductService productService = new ProductService();
-		String productName = request.getParameter("keyword");
-		List<Product> pdList = (List<Product>) request.getAttribute(productName);
+		String pd = request.getParameter("keyword");
+		//List<Product> list = new ArrayList<>();
+		/*
+		 * String productId = request.getParameter("productId"); int id =
+		 * Integer.parseInt(productId); productService.findByCount(id);
+		 */
+		List<Product> pdList = (List<Product>) request.getAttribute(pd);
 		
+		//list.sort((p1, p2) -> p1.getPrice() >= p2.getPrice() ? 1 : -1); 
 		
-		if(ParamUtil.isNullOrEmpty(productName)) {
+		if(ParamUtil.isNullOrEmpty(pd)) {
 			productService.findAll();
 			request.setAttribute("pdList", productService.findAll());
+			//request.setAttribute("count", productId + "件");
 			request.getRequestDispatcher("/menu.jsp").forward(request, response);
 		}else {
-			pdList = productService.findByName(productName);
+			pdList = productService.findByName(pd);
 			
-			if (pdList == null) {
-				request.setAttribute("msg", "検索結果がありません");
+			if (!pdList.isEmpty()) {
+				request.setAttribute("pdList", pdList);
+				//request.setAttribute("count", productId);
 				request.getRequestDispatcher("/menu.jsp").forward(request, response);
 			}else {
-				request.setAttribute("pdList", pdList);
+				request.setAttribute("listMsg", "検索結果がありません");
+				//request.setAttribute("count", productId);
 				request.getRequestDispatcher("/menu.jsp").forward(request, response);
 			}
 		}
