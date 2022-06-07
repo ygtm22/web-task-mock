@@ -17,7 +17,7 @@
       <h1 class="site_logo"><a href="menu.jsp">商品管理システム</a></h1>
       <div class="user">
         <p class="user_name">${fn:escapeXml(user.name)}さん、こんにちは</p>
-        <form class="logout_form" action="logout.jsp" method="get">
+        <form class="logout_form" action="LogoutServlet" method="get">
           <button class="logout_btn" type="submit">
             <img src="images/ドアアイコン.png">ログアウト</button>
         </form>
@@ -27,16 +27,26 @@
     <hr>
 
     <div class="btn"><a class="basic_btn regist" href="insert.jsp">新規登録</a></div>
+    <c:if test="${not empty listMsg}">
+    <h2>${listMsg}</h2>
+    </c:if>
     <c:if test="${not empty pdMsg}">
     <h2>${pdMsg}</h2>
      </c:if>
+     <c:if test="${not empty dlMsg}">
+    		<h2>${dlMsg}</h2>
+    </c:if>
     <form method="get" action="productServlet" class="search_container">
       <input type="text" size="25" name= "keyword" placeholder="キーワード検索">
       <input type="submit" value="&#xf002">
     </form>
 
     <table>
-        <div class="caption"><p>検索結果：10件</p></div>
+        <div class="caption">
+        <c:if test="${not empty count}">
+        <p>検索結果：${count}</p>
+        </c:if>
+        </div>
         <div class="order">
           <select class="base-text">
             <option>並び替え</option>
@@ -64,7 +74,7 @@
 				<td>${fn:escapeXml(product.productName)}</td>
 				<td>${fn:escapeXml(product.price)}</td>
 				<td>${fn:escapeXml(product.categoryName)}</td> 
-				<td><a class="detail_btn" href="./detail.jsp">詳細</a></td>
+				<td><a class="detail_btn" href="DetailServlet?product_id=${fn:escapeXml(product.productId)}">詳細</a></td>
       		</tr>
       	</c:forEach>
       </tbody>

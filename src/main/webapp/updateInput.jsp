@@ -1,6 +1,7 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,7 @@
     <h1 class="site_logo"><a href="menu.html">商品管理システム</a></h1>
     <div class="user">
       <p class="user_name">佐藤さん、こんにちは</p>
-      <form class="logout_form" action="logout.html" method="get">
+      <form class="logout_form" action="logoutServlet" method="get">
         <button class="logout_btn" type="submit">
           <img src="images/ドアアイコン.png">ログアウト</button>
       </form>
@@ -23,39 +24,60 @@
   <hr>
 
   <div class="insert">
+  <div class="discription">
+      <p>
+        登録情報を入力してください（<span class="required"></span>は必須です）
+      </p>
+    </div>
+  
     <div class="form_body">
-      <p class="error">エラーメッセージ</p>
+       <c:if test="${not empty pdMsg}">
+    		<p class="error">${pdMsg}</p>
+   　　</c:if>
+    <c:if test="${not empty upMsg}">
+    		<p class="error">${upMsg}</p>
+   　　</c:if>
 
-      <form action="menu.html" method="get">
+      <form action="UpdateServlet" method="get">
         <fieldset class="label-130">
-          <div>
-            <label>商品ID</label>
-            <input type="text" name="loginId" value="10001" class="base-text">
-            <span class="error">エラーメッセージ</span>
+        <div>
+            <input type="hidden" name="id" value="${fn:escapeXml(product.id)}" class="base-text">
           </div>
           <div>
-            <label>商品名</label>
-            <input type="text" name="userName" value="マッキー(黒)" class="base-text">
-            <span class="error">エラーメッセージ</span>
+            <label class="required">商品ID</label>
+            <input type="text" name="productId" value="${fn:escapeXml(product.productId)}" class="base-text">
+            <c:if test="${not empty idMsg}">
+    			<ladel class="error">${idMsg}</ladel>
+    		</c:if>
           </div>
           <div>
-            <label>単価</label>
-            <input type="text" name="tel" value="165" class="base-text">
-            <span class="error">エラーメッセージ</span>
+            <label class="required">商品名</label>
+            <input type="text" name="productName" value="${fn:escapeXml(product.productName)}" class="base-text">
+            <c:if test="${not empty nameMsg}">
+     			<ladel class="error">${nameMsg}</ladel>
+    		</c:if>
           </div>
           <div>
-            <label>カテゴリ</label> <select name="roleId" class="base-text">
-              <option value="1" selected>ペン</option>
-              <option value="2">ノート</option>
-              <option value="3">消しゴム</option>
-              <option value="4">のり</option>
+            <label class="required">単価</label>
+            <input type="text" name="price" value="${fn:escapeXml(product.price)}" class="base-text">
+            <c:if test="${not empty priceMsg}">
+    			<ladel class="error">${priceMsg}</ladel>
+    		</c:if>
+          </div>
+          <div>
+            <label class="required">カテゴリ</label>
+            <select name="categoryId" class="base-text">
+              <option value="1">筆記具</option>
+              <option value="2">オフィス機器</option>
+              <option value="3">事務消耗品</option>
+              <option value="4">紙製品</option>
+              <option value="5">雑貨</option>
             </select>
           </div>
           <div>
             <label>商品説明</label>
             <textarea name="description" class="base-text">
-ゼブラ株式会社
-線の太さ：太6.0mm、細1.5～2.0mm
+            ${fn:escapeXml(product.description)}
             </textarea>
           </div>
           <div>
@@ -66,7 +88,7 @@
         </fieldset>
           <div class="btns">
             <button type="button" onclick="openModal()" class="basic_btn">更新</button>
-            <input type="button" onclick="location.href='./menu.html'" value="メニューに戻る" class="cancel_btn">
+            <input type="button" onclick="location.href='./menu.jsp'" value="メニューに戻る" class="cancel_btn">
           </div>
           <div id="modal">
             <p class="modal_message">更新しますか？</p>

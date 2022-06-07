@@ -76,20 +76,19 @@ public class InsertServlet extends HttpServlet {
 		
 		ProductService productService = new ProductService();
 		
-		productService.productId(pdId);
+		Product pd = productService.productId(pdId);
 		
 		Product product = new Product(pdId, productName, p, catId, description);
 		
-		
 		productService.register(product);
 		
-		if (productId != null) {
+		if (pd != null) {
 			request.setAttribute("pdMsg", "商品IDが重複しています");
 			request.getRequestDispatcher("/insert.jsp").forward(request, response);
 		}else {
-		     request.setAttribute("product", product);
-		     request.setAttribute("pdMsg", "登録が完了しました。");
-		     request.getRequestDispatcher("/menu.jsp").forward(request, response);
+			request.setAttribute("product", product);
+		    request.setAttribute("pdMsg", "登録が完了しました。");
+		    request.getRequestDispatcher("/menu.jsp").forward(request, response);
 		}
 		
 		

@@ -44,21 +44,56 @@ public class ProductService{
 	        return 0;
 	    }
 	 
-	 public int productId(int product) {
+	 public Product productId(Integer productId) {
 	        try (Connection conn = DbUtil.getConnection()) {
 	            ProductDao productDao = new ProductDao(conn);
-	            return productDao.findById(product);
+	            return productDao.findByproductId(productId);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+			return null;
+	    }
+	 
+	 public int pdDelete(Product product) {
+	        try (Connection conn = DbUtil.getConnection()) {
+	            ProductDao productDao = new ProductDao(conn);
+	            return productDao.delete(product);
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }
 
 	        return 0;
 	    }
+	 
+	 public int pdUpdate(Product product, Integer productId) {
+	        try (Connection conn = DbUtil.getConnection()) {
+	            ProductDao productDao = new ProductDao(conn);
+	           return productDao.update(product, productId);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	            return 0;
+	        }
+	    }
+	 
+	 public Product id(Integer id) {
+		 try (Connection conn = DbUtil.getConnection()) {
+	            ProductDao productDao = new ProductDao(conn);
+	            return productDao.findById(id);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+			return null;
+	 }
 	
-	/*
-	 * public Product findByCount(int product) { try (Connection con =
-	 * DbUtil.getConnection()){ ProductDao productDao = new ProductDao(con); return
-	 * productDao.findByCount(product); } catch (Exception e) { e.printStackTrace();
-	 * } return null; }
-	 */
+	
+	  public Product findByCount(int product) { 
+		  try (Connection con =DbUtil.getConnection()){ 
+			  ProductDao productDao = new ProductDao(con); 
+			  return productDao.findByCount(product); 
+		} catch (Exception e) {
+			e.printStackTrace();
+	  } 
+		  return null; 
+		  }
+	 
 }

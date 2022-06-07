@@ -38,6 +38,7 @@ public class ProductServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		ProductService productService = new ProductService();
 		String pd = request.getParameter("keyword");
+		//Integer productId = ParamUtil.checkAndParseInt(request.getParameter("produstId"));
 		//List<Product> list = new ArrayList<>();
 		/*
 		 * String productId = request.getParameter("productId"); int id =
@@ -46,18 +47,23 @@ public class ProductServlet extends HttpServlet {
 		List<Product> pdList = (List<Product>) request.getAttribute(pd);
 		
 		//list.sort((p1, p2) -> p1.getPrice() >= p2.getPrice() ? 1 : -1); 
+		//System.out.println(productId);
+		
+		//ProductService ps = new ProductService();
+		
+		//Product pds = ps.findByCount(productId);
 		
 		if(ParamUtil.isNullOrEmpty(pd)) {
 			productService.findAll();
 			request.setAttribute("pdList", productService.findAll());
-			//request.setAttribute("count", productId + "件");
+			//request.setAttribute("count", pds + "件");
 			request.getRequestDispatcher("/menu.jsp").forward(request, response);
 		}else {
 			pdList = productService.findByName(pd);
 			
 			if (!pdList.isEmpty()) {
 				request.setAttribute("pdList", pdList);
-				//request.setAttribute("count", productId);
+				//request.setAttribute("count", pds + "件");
 				request.getRequestDispatcher("/menu.jsp").forward(request, response);
 			}else {
 				request.setAttribute("listMsg", "検索結果がありません");
